@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="同じ解像度の複数画像から指定範囲を一括で自動切り抜きし、グリッドや一列に並べて結合できる無料Webツール。">
 
     <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=0.90c">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=0.90d">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
     <script src="https://cdn.jsdelivr.net/npm/heic-to/dist/iife/heic-to.js"></script>
 
     <!-- Application CSS -->
-    <link rel="stylesheet" href="css/style.css?v=0.90c">
+    <link rel="stylesheet" href="css/style.css?v=0.90d">
 </head>
 
 <body>
@@ -339,7 +339,7 @@
         <header class="workspace-header">
             <!-- スマートフォン表示用: 最上段タイトル行 (中央寄せ) -->
             <div class="workspace-header-top-brand">
-                <img src="img/favicon.svg?v=0.90c" alt="" class="workspace-header-icon" width="20" height="20">
+                <img src="img/favicon.svg?v=0.90d" alt="" class="workspace-header-icon" width="20" height="20">
                 <span class="workspace-header-title">かんたんクロップ結合ツール</span>
             </div>
 
@@ -355,7 +355,7 @@
                     </button>
                     <!-- デスクトップ表示用: 戻るボタンの横にサイトアイコンとタイトルを表示 -->
                     <div class="workspace-header-desktop-brand">
-                        <img src="img/favicon.svg?v=0.90c" alt="" class="workspace-header-icon" width="20" height="20">
+                        <img src="img/favicon.svg?v=0.90d" alt="" class="workspace-header-icon" width="20" height="20">
                         <span class="workspace-header-title">かんたんクロップ結合ツール</span>
                     </div>
                 </div>
@@ -591,6 +591,59 @@
 
                     <div class="panel-body">
                         <div class="settings-grid">
+                            <!-- 配置順設定 -->
+                            <div class="setting-item">
+                                <div class="setting-label-row">
+                                    <label id="arrangementDropdownLabel">画像の配置順</label>
+                                </div>
+                                <div class="custom-dropdown" id="arrangementDropdown">
+                                    <button type="button" class="dropdown-trigger" id="arrangementDropdownTrigger"
+                                        aria-haspopup="listbox" aria-expanded="false"
+                                        aria-labelledby="arrangementDropdownLabel">
+                                        <span class="dropdown-selected-icon" id="arrangementSelectedIcon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="4 7 20 7 4 17 20 17"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="dropdown-selected-text"
+                                            id="arrangementSelectedText">Z配置（横書き）</span>
+                                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M6 9l6 6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu" id="arrangementDropdownMenu" role="listbox">
+                                        <button type="button" class="dropdown-item active" data-value="z" role="option">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="4 7 20 7 4 17 20 17"></polyline>
+                                            </svg>
+                                            <span>Z配置（横書き）</span>
+                                        </button>
+                                        <button type="button" class="dropdown-item" data-value="n" role="option">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="18 4 18 20 6 4 6 20"></polyline>
+                                            </svg>
+                                            <span>N配置（縦書き）</span>
+                                        </button>
+                                        <button type="button" class="dropdown-item" data-value="s" role="option">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M4 6h16a3 3 0 0 1 0 6H4a3 3 0 0 0 0 6h16"></path>
+                                            </svg>
+                                            <span>S配置（蛇行）</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- 列数設定 -->
                             <div class="setting-item">
                                 <div class="setting-label-row">
@@ -699,59 +752,6 @@
                                         data-val="16">16px</button>
                                     <button type="button" class="btn btn-secondary btn-sm btn-val-preset"
                                         data-val="64">64px</button>
-                                </div>
-                            </div>
-
-                            <!-- 配置順設定 -->
-                            <div class="setting-item">
-                                <div class="setting-label-row">
-                                    <label id="arrangementDropdownLabel">画像の配置順</label>
-                                </div>
-                                <div class="custom-dropdown" id="arrangementDropdown">
-                                    <button type="button" class="dropdown-trigger" id="arrangementDropdownTrigger"
-                                        aria-haspopup="listbox" aria-expanded="false"
-                                        aria-labelledby="arrangementDropdownLabel">
-                                        <span class="dropdown-selected-icon" id="arrangementSelectedIcon">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="4 7 20 7 4 17 20 17"></polyline>
-                                            </svg>
-                                        </span>
-                                        <span class="dropdown-selected-text"
-                                            id="arrangementSelectedText">Z配置（横書き）</span>
-                                        <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M6 9l6 6 6-6" />
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu" id="arrangementDropdownMenu" role="listbox">
-                                        <button type="button" class="dropdown-item active" data-value="z" role="option">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="4 7 20 7 4 17 20 17"></polyline>
-                                            </svg>
-                                            <span>Z配置（横書き）</span>
-                                        </button>
-                                        <button type="button" class="dropdown-item" data-value="n" role="option">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="18 4 18 20 6 4 6 20"></polyline>
-                                            </svg>
-                                            <span>N配置（縦書き）</span>
-                                        </button>
-                                        <button type="button" class="dropdown-item" data-value="s" role="option">
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path d="M4 6h16a3 3 0 0 1 0 6H4a3 3 0 0 0 0 6h16"></path>
-                                            </svg>
-                                            <span>S配置（蛇行）</span>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1006,7 +1006,7 @@
     </div>
 
     <!-- Application Script -->
-    <script src="js/app.js?v=0.90c"></script>
+    <script src="js/app.js?v=0.90d"></script>
 </body>
 
 </html>

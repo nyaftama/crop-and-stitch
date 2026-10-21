@@ -382,7 +382,7 @@
 
         // スタート画面へ戻る (モーダル確認)
         dom.btnBackToStart.addEventListener("click", async () => {
-            const confirmed = await dialogConfirm("スタート画面に戻りますか？読み込んだ画像一覧はリセットされます。");
+            const confirmed = await dialogConfirm("スタート画面に戻りますか？\n読み込んだ画像一覧はリセットされます。");
             if (confirmed) {
                 resetToStart();
             }
@@ -645,8 +645,8 @@
 
         if (isHeicFile(file)) {
             const converter = (typeof HeicTo !== "undefined") ? HeicTo :
-                              (typeof heicTo !== "undefined") ? heicTo :
-                              (window.HeicTo || window.heicTo || null);
+                (typeof heicTo !== "undefined") ? heicTo :
+                    (window.HeicTo || window.heicTo || null);
             if (converter) {
                 try {
                     const converted = await converter({
@@ -677,8 +677,8 @@
                 img.onerror = () => {
                     if (isHeicFile(file) && processBlob === file) {
                         const converter = (typeof HeicTo !== "undefined") ? HeicTo :
-                                          (typeof heicTo !== "undefined") ? heicTo :
-                                          (window.HeicTo || window.heicTo || null);
+                            (typeof heicTo !== "undefined") ? heicTo :
+                                (window.HeicTo || window.heicTo || null);
                         if (converter) {
                             converter({ blob: file, type: "image/jpeg", quality: 0.95 })
                                 .then(conv => {
@@ -777,10 +777,10 @@
      */
     function loadSampleImages() {
         const sampleColors = [
-            { bg: "#3b82f6", label: "サンプル 1", icon: "ALPHA" },
-            { bg: "#10b981", label: "サンプル 2", icon: "BRAVO" },
-            { bg: "#f59e0b", label: "サンプル 3", icon: "CHARLIE" },
-            { bg: "#ec4899", label: "サンプル 4", icon: "DELTA" }
+            { bg: "#3b82f6", label: "サンプル 1", icon: "Sample 1" },
+            { bg: "#10b981", label: "サンプル 2", icon: "Sample 2" },
+            { bg: "#f59e0b", label: "サンプル 3", icon: "Sample 3" },
+            { bg: "#ec4899", label: "サンプル 4", icon: "Sample 4" }
         ];
 
         const sampleImages = sampleColors.map((item, idx) => {
@@ -825,7 +825,7 @@
 
             ctx.fillStyle = "#64748b";
             ctx.font = "14px monospace";
-            ctx.fillText(`CODE: ${item.icon}`, 240, 325);
+            ctx.fillText(`${item.icon}`, 240, 325);
 
             // 外側のラベル
             ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
